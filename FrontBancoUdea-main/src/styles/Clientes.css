@@ -1,0 +1,38 @@
+.clientes-container {
+    margin-top: 40px;
+    padding: 30px;
+  }
+
+  .cliente-title {
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .formulario-clientes {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .formulario-clientes div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+  }
+  
+  input, button {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  button {
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  

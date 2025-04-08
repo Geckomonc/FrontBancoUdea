@@ -1,0 +1,19 @@
+nav {
+    background-color: green;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }  
