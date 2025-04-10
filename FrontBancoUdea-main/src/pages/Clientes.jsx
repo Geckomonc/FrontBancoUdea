@@ -4,7 +4,6 @@ import '../styles/Clientes.css';
 
 const Clientes = () => {
   const [form, setForm] = useState({
-    id: '',
     accountNumber: '',
     firstName: '',
     lastName: '',
@@ -19,7 +18,7 @@ const Clientes = () => {
     const { accountNumber, firstName, lastName, balance } = form;
     api.post('/customers', { accountNumber, firstName, lastName, balance })
       .then(() => alert('Cliente creado'))
-      .catch(console.error);
+      .catch(() => alert('Error en creacion'), console.error);
   };
 
   const handleSearch = () => {
