@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';  // Corregido el import
 import '../styles/Clientes.css';
+import api from '../services/api';  // Asegúrate que la ruta del servicio sea correcta
 
 const VerCliente = () => {
-  const clientes = [
-    { id: 1, firstName: 'Ana', lastName: 'Pérez', accountNumber: '123456789', balance: 500000 },
-    { id: 2, firstName: 'Luis', lastName: 'Gómez', accountNumber: '987654321', balance: 320000 },
-    { id: 3, firstName: 'Carlos', lastName: 'Ramírez', accountNumber: '456789123', balance: 750000 },
-    { id: 4, firstName: 'Lucía', lastName: 'Martínez', accountNumber: '741852963', balance: 150000 },
-  ];
+  const [clientes, setClientes] = useState([]); // Definir el estado para los clientes
+
+  useEffect(() => {
+    // Realizar la solicitud GET a la API del backend
+    api.get('/customers')  // Asegúrate que esta ruta sea correcta en tu backend
+      .then((res) => {
+        setClientes(res.data);  // Almacenar los datos en el estado
+      })
+      .catch((err) => console.error('Error fetching customers:', err));  // Manejo de errores
+  }, []);  // El array vacío asegura que solo se ejecute una vez al cargar el componente
 
   return (
     <div className="clientes-container">
@@ -23,6 +28,7 @@ const VerCliente = () => {
           </tr>
         </thead>
         <tbody>
+          {/* Mostrar los clientes en la tabla */}
           {clientes.map((cliente) => (
             <tr key={cliente.id}>
               <td>{cliente.id}</td>
