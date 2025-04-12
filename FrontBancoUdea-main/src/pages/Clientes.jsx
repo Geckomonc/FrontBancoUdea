@@ -21,15 +21,6 @@ const Clientes = () => {
       .catch(() => alert('Error en creacion'), console.error);
   };
 
-  const handleSearch = () => {
-    api.get(`/customers/${form.id}`)
-      .then(res => {
-        const { accountNumber, firstName, lastName, balance } = res.data;
-        setForm(prev => ({ ...prev, accountNumber, firstName, lastName, balance }));
-      })
-      .catch(() => alert('Cliente no encontrado'));
-  };
-
   const handleUpdate = () => {
     const { id, accountNumber, firstName, lastName, balance } = form;
     api.put(`/customers/${id}`, { accountNumber, firstName, lastName, balance })
@@ -51,12 +42,6 @@ const Clientes = () => {
           <label>Balance</label>
           <input name="balance" value={form.balance} onChange={handleChange} />
           <button onClick={handleCreate}>Crear</button>
-        </div>
-        <div>
-          <label>Ingrese el ID del cliente</label>
-          <input name="id" value={form.id} onChange={handleChange} />
-          <button onClick={handleSearch}>Buscar</button>
-          <button onClick={handleUpdate}>Actualizar</button>
         </div>
       </div>
     </div>
